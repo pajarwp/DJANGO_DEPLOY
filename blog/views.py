@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Blog
 from .forms import PostForm
 # Create your views here.
@@ -9,7 +9,7 @@ def input_blog(request) :
 
 def new_blog(request) :
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('new_blog')
