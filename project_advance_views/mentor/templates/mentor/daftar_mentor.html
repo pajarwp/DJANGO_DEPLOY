@@ -1,0 +1,23 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block content %}
+<body>
+        <div class="style margin text-center">
+            <span>Our Mentor</span>
+        </div>
+        {% for data in mentor %}
+        <div class="margin container">
+            <div class="section-row">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 col-12">
+                            <img src="{{ data.gambar.url }}" class="gambar"/>
+                        </div>
+                        <div class="col-md-8 col-sm-6 col-12">
+                            <h4 class="mentor">{{ data.nama_lengkap }}</h4>
+                            <p>{{ data.status }}</p>
+                        </div>
+                    </div>
+                </div>
+    </body>
+    {% endfor %}
+{% endblock %}
